@@ -21,6 +21,8 @@
 		993AEA63180C7BA200716DB3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 993AEA45180C7BA200716DB3 /* UIKit.framework */; };
 		993AEA6B180C7BA200716DB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 993AEA69180C7BA200716DB3 /* InfoPlist.strings */; };
 		993AEA6D180C7BA200716DB3 /* BullsEyeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 993AEA6C180C7BA200716DB3 /* BullsEyeTests.m */; };
+		99993C47181C243900D2B3A4 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99993C46181C243900D2B3A4 /* AboutViewController.m */; };
+		99D90D03181C45CD00333981 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 99D90D02181C45CD00333981 /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		993AEA68180C7BA200716DB3 /* BullsEyeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BullsEyeTests-Info.plist"; sourceTree = "<group>"; };
 		993AEA6A180C7BA200716DB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		993AEA6C180C7BA200716DB3 /* BullsEyeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BullsEyeTests.m; sourceTree = "<group>"; };
+		99993C45181C243900D2B3A4 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		99993C46181C243900D2B3A4 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		99D90D02181C45CD00333981 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +117,14 @@
 		993AEA47180C7BA200716DB3 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				99D90D02181C45CD00333981 /* BullsEye.html */,
 				993AEA50180C7BA200716DB3 /* BullsEyeAppDelegate.h */,
 				993AEA51180C7BA200716DB3 /* BullsEyeAppDelegate.m */,
 				993AEA53180C7BA200716DB3 /* Main.storyboard */,
 				993AEA56180C7BA200716DB3 /* BullsEyeViewController.h */,
 				993AEA57180C7BA200716DB3 /* BullsEyeViewController.m */,
+				99993C45181C243900D2B3A4 /* AboutViewController.h */,
+				99993C46181C243900D2B3A4 /* AboutViewController.m */,
 				993AEA59180C7BA200716DB3 /* Images.xcassets */,
 				993AEA48180C7BA200716DB3 /* Supporting Files */,
 			);
@@ -162,6 +170,7 @@
 				993AEA3A180C7BA200716DB3 /* Sources */,
 				993AEA3B180C7BA200716DB3 /* Frameworks */,
 				993AEA3C180C7BA200716DB3 /* Resources */,
+				992C058C1870C7C100271070 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -200,6 +209,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Digital Javelina, LLC";
 				TargetAttributes = {
+					993AEA3D180C7BA200716DB3 = {
+						DevelopmentTeam = YHWHU4634V;
+					};
 					993AEA5E180C7BA200716DB3 = {
 						TestTargetID = 993AEA3D180C7BA200716DB3;
 					};
@@ -230,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993AEA5A180C7BA200716DB3 /* Images.xcassets in Resources */,
+				99D90D03181C45CD00333981 /* BullsEye.html in Resources */,
 				993AEA4C180C7BA200716DB3 /* InfoPlist.strings in Resources */,
 				993AEA55180C7BA200716DB3 /* Main.storyboard in Resources */,
 			);
@@ -245,6 +258,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		992C058C1870C7C100271070 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#if [ ${CONFIGURATION} == \"Release\" ]; then\nAPPLEDOC_PATH=`which appledoc`\nif [ $APPLEDOC_PATH ]; then\n$APPLEDOC_PATH \\\n--project-name ${PRODUCT_NAME} \\\n--project-company \"Digital Javelina, LLC\" \\\n--company-id \"com.digitaljavelina\" \\\n--output ${PRODUCT_NAME}Docs \\\n--keep-undocumented-objects \\\n--keep-undocumented-members \\\n--keep-intermediate-files \\\n--no-install-docset \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n${PROJECT_DIR}/${PRODUCT_NAME}\nfi;\n#fi;";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		993AEA3A180C7BA200716DB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -252,6 +281,7 @@
 			files = (
 				993AEA4E180C7BA200716DB3 /* main.m in Sources */,
 				993AEA58180C7BA200716DB3 /* BullsEyeViewController.m in Sources */,
+				99993C47181C243900D2B3A4 /* AboutViewController.m in Sources */,
 				993AEA52180C7BA200716DB3 /* BullsEyeAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,10 +409,24 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Mike/Dropbox/XCode/BullsEye,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BullsEye/BullsEye-Prefix.pch";
 				INFOPLIST_FILE = "BullsEye/BullsEye-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					"Reveal\n\n-ObjC",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +436,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Mike/Dropbox/XCode/BullsEye,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BullsEye/BullsEye-Prefix.pch";
 				INFOPLIST_FILE = "BullsEye/BullsEye-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -461,6 +512,7 @@
 				993AEA72180C7BA200716DB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		993AEA73180C7BA200716DB3 /* Build configuration list for PBXNativeTarget "BullsEyeTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +521,7 @@
 				993AEA75180C7BA200716DB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
